@@ -104,10 +104,10 @@ void SetHdrMonitorMode(bool enableHDR, const Chromaticities *chroma, float maxMa
 				{
 
 					if (hdrCapabilities.isST2084EotfSupported)
-//						if (hdrCapabilities.isDolbyVisionSupported)
 						{
 						printf("Display %d supports ST2084 EOTF\r\n", maxDisplayIndex);
-//						printf("Display %d supports Dolby EOTF\r\n", maxDisplayIndex);
+
+						printf("Display %d DolbyVision %d\r\n", maxDisplayIndex, hdrCapabilities.isDolbyVisionSupported);
 
 						printf("isTraditionalHdrGammaSupported %d\r\n", hdrCapabilities.isTraditionalHdrGammaSupported);
 
@@ -120,6 +120,20 @@ void SetHdrMonitorMode(bool enableHDR, const Chromaticities *chroma, float maxMa
 						printf("supports_backlight_control %d\r\n", hdrCapabilities.dv_static_metadata.supports_backlight_control);
 						printf("interface_supported_by_sink %d\r\n", hdrCapabilities.dv_static_metadata.interface_supported_by_sink);
 						printf("supports_10b_12b_444 %d\r\n", hdrCapabilities.dv_static_metadata.supports_10b_12b_444);
+
+						printf("  desired_content_max_luminance = %d\r\n", hdrCapabilities.display_data.desired_content_max_luminance);
+						printf("  desired_content_min_luminance = %d\r\n", hdrCapabilities.display_data.desired_content_min_luminance);
+						printf("  displayPrimary_x0 = %f\r\n", hdrCapabilities.display_data.displayPrimary_x0 / 50000.0);
+						printf("  displayPrimary_y0 = %f\r\n", hdrCapabilities.display_data.displayPrimary_y0 / 50000.0);
+						printf("  displayPrimary_x1 = %f\r\n", hdrCapabilities.display_data.displayPrimary_x1 / 50000.0);
+						printf("  displayPrimary_y1 = %f\r\n", hdrCapabilities.display_data.displayPrimary_y1 / 50000.0);
+						printf("  displayPrimary_x2 = %f\r\n", hdrCapabilities.display_data.displayPrimary_x2 / 50000.0);
+						printf("  displayPrimary_y2 = %f\r\n", hdrCapabilities.display_data.displayPrimary_y2 / 50000.0);
+						printf("  displayWhitePoint_x = %f\r\n", hdrCapabilities.display_data.displayWhitePoint_x / 50000.0);
+						printf("  displayWhitePoint_y = %f\r\n", hdrCapabilities.display_data.displayWhitePoint_y / 50000.0);
+
+						printf("    target_min_luminance = %d\r\n", hdrCapabilities.dv_static_metadata.target_min_luminance);
+						printf("    target_max_luminance = %d\r\n", hdrCapabilities.dv_static_metadata.target_max_luminance);
 
 
 						NV_HDR_COLOR_DATA hdrColorData = {};
